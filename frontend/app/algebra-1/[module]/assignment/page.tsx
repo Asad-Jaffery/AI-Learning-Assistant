@@ -1,5 +1,8 @@
+'use client';
 import Link from 'next/link';
 import { use } from 'react';
+import QuestionBox from '../../../components/QuestionBox';
+import { Question } from '../../../types/question';
 
 interface AssignmentPageProps {
   params: Promise<{
@@ -10,33 +13,36 @@ interface AssignmentPageProps {
 export default function AssignmentPage({ params }: AssignmentPageProps) {
   const resolvedParams = use(params);
 
-  console.log('HERE ARE THE PARAMS', resolvedParams);
   const moduleTitle = resolvedParams.module
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-  const questions = [
+  const questions: Question[] = [
     {
       id: 1,
       question: 'Solve for x: 2x + 5 = 13',
       points: 5,
+      solution: '4',
     },
     {
       id: 2,
       question:
         'Find the slope of the line passing through points (2, 3) and (4, 7)',
       points: 8,
+      solution: '2',
     },
     {
       id: 3,
-      question: 'Graph the equation y = 2x - 1',
+      question: 'What is the slop in the equation: y = 2x - 1',
       points: 10,
+      solution: '2',
     },
     {
       id: 4,
-      question: 'Solve the system of equations: x + y = 5, 2x - y = 1',
+      question: 'Solve for y: 7 - y = 1',
       points: 12,
+      solution: '6',
     },
   ];
 
@@ -86,48 +92,7 @@ export default function AssignmentPage({ params }: AssignmentPageProps) {
 
             <div className='space-y-6'>
               {questions.map((question) => (
-                <div
-                  key={question.id}
-                  className='border border-gray-200 rounded-lg p-6'
-                >
-                  <div className='flex justify-between items-start mb-4'>
-                    <div className='flex-1'>
-                      <h3 className='text-lg font-semibold text-gray-900 mb-2'>
-                        Question {question.id}
-                      </h3>
-                      <p className='text-gray-700 mb-4'>{question.question}</p>
-                    </div>
-                    <div className='text-sm text-gray-500 ml-4'>
-                      {question.points} points
-                    </div>
-                  </div>
-
-                  <div className='space-y-4'>
-                    <div>
-                      <label
-                        htmlFor={`answer-${question.id}`}
-                        className='block text-sm font-medium text-gray-700 mb-2'
-                      >
-                        Your Answer:
-                      </label>
-                      <textarea
-                        id={`answer-${question.id}`}
-                        rows={3}
-                        className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500'
-                        placeholder='Enter your answer here...'
-                      />
-                    </div>
-
-                    <div className='flex justify-between items-center'>
-                      <button className='bg-yellow-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-yellow-600 transition-colors duration-200'>
-                        Get Hint
-                      </button>
-                      <div className='text-sm text-gray-500'>
-                        Hint: Click "Get Hint" for AI-powered assistance
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <QuestionBox key={question.id} question={question} />
               ))}
             </div>
 
