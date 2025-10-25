@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { Question } from '../types/question';
-import { askAssignmentLLM } from '../utils/ask_assignment_mode_llm';
+import { askAssignmentLLM } from '../utils/AskAssignmentModeLlm';
 
 interface AskAIBoxProps {
   question: Question;

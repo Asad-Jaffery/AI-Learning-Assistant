@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { use } from 'react';
+import AIStudyBot from '../../../components/AIStudyBot';
 
 interface SlidesPageProps {
   params: Promise<{
@@ -31,7 +32,6 @@ export default function SlidesPage({ params }: SlidesPageProps) {
                   stroke='currentColor'
                   viewBox='0 0 24 24'
                 >
-                  
                   <path
                     strokeLinecap='round'
                     strokeLinejoin='round'
@@ -50,68 +50,101 @@ export default function SlidesPage({ params }: SlidesPageProps) {
 
       <main className='max-w-7xl mx-auto py-6 sm:px-6 lg:px-8'>
         <div className='px-4 py-6 sm:px-0'>
-          <div className='bg-white rounded-lg shadow-md border border-gray-200 p-8'>
-            <h2 className='text-2xl font-bold text-gray-900 mb-6'>
-              {moduleTitle} Content
-            </h2>
+          <div className='flex gap-6'>
+            {/* Main content area */}
+            <div className='flex-1 bg-white rounded-lg shadow-md border border-gray-200 p-8'>
+              <h2 className='text-2xl font-bold text-gray-900 mb-6'>
+                {moduleTitle} Content
+              </h2>
 
-            <div className='space-y-6'>
-              <div className='border border-gray-200 rounded-lg p-6'>
-                <h3 className='text-lg font-semibold text-gray-900 mb-4'>
-                  Slide 1: Introduction
-                </h3>
-                <div className='bg-gray-100 rounded-lg p-4 min-h-[200px] flex items-center justify-center'>
-                  <p className='text-gray-600'>
-                    Slide content placeholder - Introduction to {moduleTitle}
-                  </p>
+              <div className='space-y-6'>
+                <div className='border border-gray-200 rounded-lg p-6'>
+                  <h3 className='text-lg font-semibold text-gray-900 mb-4'>
+                    Slide 1: Introduction to Linear Equations
+                  </h3>
+                  <div className='bg-gray-50 rounded-lg p-6'>
+                    <div className='space-y-4'>
+                      <p className='text-gray-800'>
+                        <strong>What is a Linear Equation?</strong>
+                      </p>
+                      <p className='text-gray-700'>
+                        A linear equation is an equation where the highest power
+                        of the variable is 1.
+                      </p>
+                      <div className='bg-white border border-gray-200 rounded p-4'>
+                        <p className='text-gray-800 font-mono text-lg'>
+                          2x + 5 = 13
+                        </p>
+                        <p className='text-sm text-gray-600 mt-2'>
+                          This is a linear equation in one variable (x)
+                        </p>
+                      </div>
+                      <p className='text-gray-700'>
+                        <strong>Goal:</strong> Find the value of x that makes
+                        the equation true.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div className='border border-gray-200 rounded-lg p-6'>
-                <h3 className='text-lg font-semibold text-gray-900 mb-4'>
-                  Slide 2: Key Concepts
-                </h3>
-                <div className='bg-gray-100 rounded-lg p-4 min-h-[200px] flex items-center justify-center'>
-                  <p className='text-gray-600'>
-                    Slide content placeholder - Key concepts and definitions
-                  </p>
+                <div className='border border-gray-200 rounded-lg p-6'>
+                  <h3 className='text-lg font-semibold text-gray-900 mb-4'>
+                    Slide 2: Solving Linear Equations
+                  </h3>
+                  <div className='bg-gray-50 rounded-lg p-6'>
+                    <div className='space-y-4'>
+                      <p className='text-gray-800'>
+                        <strong>Steps to Solve:</strong>
+                      </p>
+                      <ol className='list-decimal list-inside space-y-2 text-gray-700'>
+                        <li>Isolate the variable term</li>
+                        <li>Use inverse operations</li>
+                        <li>Check your answer</li>
+                      </ol>
+                      <div className='bg-white border border-gray-200 rounded p-4'>
+                        <p className='text-gray-800 font-mono text-sm'>
+                          2x + 5 = 13
+                          <br />
+                          2x + 5 - 5 = 13 - 5<br />
+                          2x = 8<br />x = 4
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div className='border border-gray-200 rounded-lg p-6'>
-                <h3 className='text-lg font-semibold text-gray-900 mb-4'>
-                  Slide 3: Examples
-                </h3>
-                <div className='bg-gray-100 rounded-lg p-4 min-h-[200px] flex items-center justify-center'>
-                  <p className='text-gray-600'>
-                    Slide content placeholder - Worked examples and practice
-                    problems
-                  </p>
+                <div className='border border-gray-200 rounded-lg p-6'>
+                  <h3 className='text-lg font-semibold text-gray-900 mb-4'>
+                    Slide 3: Practice Problems
+                  </h3>
+                  <div className='bg-gray-50 rounded-lg p-6'>
+                    <div className='space-y-4'>
+                      <p className='text-gray-800'>
+                        <strong>Try these problems:</strong>
+                      </p>
+                      <div className='space-y-3'>
+                        <div className='bg-white border border-gray-200 rounded p-3'>
+                          <p className='text-gray-800 font-mono'>3x - 7 = 14</p>
+                        </div>
+                        <div className='bg-white border border-gray-200 rounded p-3'>
+                          <p className='text-gray-800 font-mono'>2x + 1 = 9</p>
+                        </div>
+                        <div className='bg-white border border-gray-200 rounded p-3'>
+                          <p className='text-gray-800 font-mono'>
+                            5x - 3 = 2x + 6
+                          </p>
+                        </div>
+                      </div>
+                      <p className='text-sm text-gray-600'>
+                        <strong>Hint:</strong> Use the same steps we learned!
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* AI Chat placeholder */}
-            <div className='mt-8 border-t pt-6'>
-              <div className='bg-blue-50 border border-blue-200 rounded-lg p-6'>
-                <h3 className='text-lg font-semibold text-blue-900 mb-2'>
-                  AI Chat (coming soon)
-                </h3>
-                <p className='text-blue-700'>
-                  Interactive AI assistant will be available here to help with
-                  questions and provide personalized explanations.
-                </p>
-                <div className='mt-4 bg-blue-100 rounded-lg p-4'>
-                  <p className='text-blue-800 text-sm'>
-                    🤖 AI features will include:
-                  </p>
-                  <ul className='text-blue-800 text-sm mt-2 ml-4 list-disc'>
-                    <li>Real-time question answering</li>
-                    <li>Step-by-step problem solving</li>
-                    <li>Personalized learning recommendations</li>
-                  </ul>
-                </div>
-              </div>
+            <div className='w-80 flex-shrink-0'>
+              <AIStudyBot />
             </div>
           </div>
         </div>
