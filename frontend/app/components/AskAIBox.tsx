@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Question } from '../types/question';
 import { askAssignmentLLM } from '../utils/AskAssignmentModeLlm';
+import { marked } from 'marked';
 
 interface AskAIBoxProps {
   question: Question;
@@ -48,7 +49,7 @@ export default function AskAIBox({ question }: AskAIBoxProps) {
             try {
               const response = await askAssignmentLLM(question, input);
               if (response && response.message) {
-                setAiResponse(response.message);
+                setAiResponse(marked.parse(response.message) as string);
               }
             } catch (error) {
               console.error('Error calling AI:', error);
@@ -75,9 +76,10 @@ export default function AskAIBox({ question }: AskAIBoxProps) {
               <h4 className='text-sm font-medium text-purple-800 mb-2'>
                 AI Response:
               </h4>
-              <p className='text-gray-700 text-sm leading-relaxed whitespace-pre-wrap'>
-                {aiResponse}
-              </p>
+              <div
+                className='text-gray-700 text-sm leading-relaxed prose prose-sm max-w-none'
+                dangerouslySetInnerHTML={{ __html: aiResponse }}
+              />
             </div>
           </div>
         </div>

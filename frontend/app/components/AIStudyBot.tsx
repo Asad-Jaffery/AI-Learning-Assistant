@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { askStudyLLM } from '../utils/AskStudyModeLlm';
+import { marked } from 'marked';
 
 export default function AIStudyBot() {
   const [input, setInput] = useState('');
@@ -17,7 +18,7 @@ export default function AIStudyBot() {
     try {
       const response = await askStudyLLM(input);
       if (response && response.message) {
-        setAiResponse(response.message);
+        setAiResponse(marked.parse(response.message) as string);
       }
     } catch (error) {
       console.error('Error calling AI:', error);
@@ -67,9 +68,10 @@ export default function AIStudyBot() {
               <h4 className='text-sm font-medium text-blue-800 mb-2'>
                 AI Response:
               </h4>
-              <p className='text-gray-700 text-sm leading-relaxed whitespace-pre-wrap'>
-                {aiResponse}
-              </p>
+              <div
+                className='text-gray-700 text-sm leading-relaxed prose prose-sm max-w-none'
+                dangerouslySetInnerHTML={{ __html: aiResponse }}
+              />
             </div>
           </div>
         </div>
