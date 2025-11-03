@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import { Question } from '../types/question';
 import { askAssignmentLLM } from '../utils/AskAssignmentModeLlm';
 import { marked } from 'marked';
@@ -16,8 +17,14 @@ export default function AskAIBox({ question }: AskAIBoxProps) {
   return (
     <div className='mt-4 border-t pt-4 bg-purple-50 border border-purple-200 rounded-lg p-4'>
       <div className='flex items-center mb-3'>
-        <div className='w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-2'>
-          <span className='text-purple-600 text-sm'>🤖</span>
+        <div className='w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-2 p-1'>
+          <Image
+            src='/ai_logo.png'
+            alt='AI'
+            width={16}
+            height={16}
+            className='w-full h-full object-contain'
+          />
         </div>
         <label
           htmlFor={`askai-${question.id}`}
@@ -69,8 +76,14 @@ export default function AskAIBox({ question }: AskAIBoxProps) {
       {aiResponse && (
         <div className='mt-4 p-4 bg-white border border-purple-200 rounded-lg'>
           <div className='flex items-start'>
-            <div className='w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-1'>
-              <span className='text-purple-600 text-sm'>🤖</span>
+            <div className='w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-1 p-1'>
+              <Image
+                src='/ai_logo.png'
+                alt='AI'
+                width={16}
+                height={16}
+                className='w-full h-full object-contain'
+              />
             </div>
             <div className='flex-1'>
               <h4 className='text-sm font-medium text-purple-800 mb-2'>

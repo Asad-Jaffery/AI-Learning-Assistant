@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import { askStudyLLM } from '../utils/AskStudyModeLlm';
 import { marked } from 'marked';
 
@@ -33,8 +34,14 @@ export default function AIStudyBot() {
   return (
     <div className='bg-blue-50 border border-blue-200 rounded-lg p-6 h-fit'>
       <div className='flex items-center mb-4'>
-        <div className='w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3'>
-          <span className='text-blue-600 text-lg'>🤖</span>
+        <div className='w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3 p-1.5'>
+          <Image
+            src='/ai_logo.png'
+            alt='AI'
+            width={20}
+            height={20}
+            className='w-full h-full object-contain'
+          />
         </div>
         <h3 className='text-lg font-semibold text-blue-900'>
           AI Study Assistant
@@ -61,8 +68,14 @@ export default function AIStudyBot() {
       {aiResponse && (
         <div className='bg-white border border-blue-200 rounded-lg p-4'>
           <div className='flex items-start'>
-            <div className='w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3 mt-1'>
-              <span className='text-blue-600 text-sm'>🤖</span>
+            <div className='w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3 mt-1 p-1'>
+              <Image
+                src='/ai_logo.png'
+                alt='AI'
+                width={16}
+                height={16}
+                className='w-full h-full object-contain'
+              />
             </div>
             <div className='flex-1'>
               <h4 className='text-sm font-medium text-blue-800 mb-2'>
