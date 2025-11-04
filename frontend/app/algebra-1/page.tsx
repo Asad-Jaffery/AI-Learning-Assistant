@@ -20,7 +20,7 @@ export default function CoursePage() {
   ];
 
   return (
-    <div className='min-h-screen bg-gray-50'>
+    <div className='min-h-screen'>
       <nav className='bg-white shadow-sm border-b'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='flex justify-between h-16'>
@@ -56,7 +56,7 @@ export default function CoursePage() {
             {modules.map((module) => (
               <div
                 key={module.id}
-                className='bg-white rounded-lg shadow-md border border-gray-200 p-6'
+                className='bg-[#D1E9FF] rounded-lg shadow-md border border-gray-200 p-6'
               >
                 <div className='flex items-center justify-between'>
                   <div className='flex-1'>
