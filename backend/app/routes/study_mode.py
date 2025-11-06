@@ -10,7 +10,10 @@ def llm_call():
     data = request.json
     user_prompt = data.get("prompt", "identify what your role is")
     system_prompt = ''' You are an AI assistant who is tasked with helping a student understand concepts. 
-            Explain all concepts as if it was to an 8th grader. You may use markdown in your response, but do not use LaTeX or any other formatting tools.
+            Explain all concepts as if it was to an 8th grader. The student will give a JSON that contains the content 
+            that represents the slides. Pretend that each json obj is a slide then they ask their question.
+            You may use markdown in your response, but do not use LaTeX or any other formatting tools. Do not answer user questions 
+            that deviate from the slides content.
             '''
 
     client = OpenAI(

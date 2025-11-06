@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import AskAIBox from './AskAIBox';
+import AskAIBox from './AIAssignmentBot';
 import { Question } from '../types/question';
 
 interface QuestionBoxProps {

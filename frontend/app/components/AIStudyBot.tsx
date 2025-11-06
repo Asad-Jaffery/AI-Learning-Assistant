@@ -3,11 +3,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { askStudyLLM } from '../utils/AskStudyModeLlm';
 import { marked } from 'marked';
+import slides from './../algebra-1/slides/linear-equations';
 
 export default function AIStudyBot() {
   const [input, setInput] = useState('');
   const [aiResponse, setAiResponse] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ export default function AIStudyBot() {
     setAiResponse('');
 
     try {
-      const response = await askStudyLLM(input);
+      const response = await askStudyLLM(slides, input);
       if (response && response.message) {
         setAiResponse(marked.parse(response.message) as string);
       }

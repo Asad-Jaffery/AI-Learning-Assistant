@@ -1,6 +1,5 @@
 export async function askAssignmentLLM(question: any, prompt: string) {
-  const bodyObj = `The question that I am attemoting answer is as follows: ${question.question}. ${prompt}`;
-  console.log(bodyObj);
+  const bodyObj = `The question that I am attempting answer is as follows: ${question.question}. ${prompt}`;
   const res = await fetch('/api/assignment_llm', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
