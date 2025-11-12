@@ -1,8 +1,5 @@
 ## Click this link: 
 https://ai-learning-assistant-frontend-xdyg.onrender.com
-- since I'm using the free tier, you may have to wait before the app boots up. Also, the AI functionality might be buggy, or take a while. I would reccomend trying to spin it up, use an AI feature, and if it does not work, wait and then try again.
-
-
 
 
 ## ⚠️ Note on App Performance and AI Features
